@@ -49,7 +49,7 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
                 handleChangeThemeApp
             }}
         >
-            <ThemeProvider theme={isDark ? themes.dark : themes.light}>
+            <ThemeProvider theme={isDark ? themes.darkTheme : themes.lightTheme}>
                 {children}
             </ThemeProvider>
 
