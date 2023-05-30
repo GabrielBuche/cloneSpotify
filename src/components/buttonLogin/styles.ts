@@ -19,14 +19,12 @@ export const ViewTitle = styled.View`
 `;
 
 export const IconView = styled.View`
-
-    margin-right: 3px;
+    margin-right: 10px;
     justify-content: flex-start;
     align-items: center;
     position: absolute;
     top: 10px;
     left: 10px;
-    
 `;
 
 export const Separator = styled.View`

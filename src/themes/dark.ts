@@ -5,11 +5,11 @@ import { DefaultTheme } from 'styled-components';
 
 const darkTheme: DefaultTheme = {
     colors: {
-        background: '#191414',
+        background: '#1b1b1b',
         text: '#FFFFFF',
         textDark: '#000000',
         primary: '#1DB954',
-        secundaria: '#191414',
+        secundaria: '#8C8C8C',
         primary1: '#46E07C',
         primary2: '#10943F',
         secundaria1: '#403737',
