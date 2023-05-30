@@ -6,7 +6,7 @@ const lightTheme: DefaultTheme = {
         text: '#FFFFFF',
         textDark: '#000000',
         primary: '#1DB954',
-        secundaria: '#191414',
+        secundaria: '#9C9C9C',
 
         primary1: '#46E07C',
         primary2: '#10943F',

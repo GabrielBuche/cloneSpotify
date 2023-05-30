@@ -1,65 +1,35 @@
-import React from 'react';
-import {
-    Container,
-    ContainerTitle,
-    Gradient,
-    LogoContainer,
-    ViewBtn,
-    BtnFollowFree,
-    UpperContent,
-    LowerContent,
-    BtnLogin
-} from './styles'
-import { Title, TitleDark } from '../../globalStyles/Text'
-
-import { ButtonLogin } from '../../components/buttonLogin';
-
-import Logo from '../../assets/Logo.svg';
+import React, { useMemo, useState } from 'react';
+import { Container } from './styles';
+import { InputEmail } from '../../components/Inputs/inputEmail';
+import { BigTitle } from '../../globalStyles/Text';
+import { Separator } from '../../globalStyles/utils';
+import { ButtonNext } from '../../components/ButtonNext';
+import { InputPassword } from '../../components/Inputs/inputPassword';
 
 export function Login() {
+    const [email, setEmail] = useState<string>('');
+    const [senha, setSenha] = useState<string>('');
+
+    const isButtonEnable = useMemo(() => {
+        return email !== '' && senha !== '';
+      }, [email, senha]);
+
+
     return (
         <Container>
-            <Gradient
-                colors={['#c7c7c7', '#2c2c2c']}
-                end={{ x: 0.5, y: 0.3 }}
-                locations={[0.0001, 0.5]}
+            <BigTitle>E-mail ou nome de usuário</BigTitle>
+            <InputEmail
+                value={email}
+                onChangeText={value => setEmail(value)}
             />
-            <UpperContent>
-                <LogoContainer >
-                    <Logo />
-                </LogoContainer>
-                <ContainerTitle>
-                    <Title>Milhões de música à sua escolha.</Title>
-                    <Title> Grátis no Spotify.</Title>
-                </ContainerTitle>
-            </UpperContent>
-            <LowerContent>
-                <ViewBtn>
-                    <BtnFollowFree>
-                        <TitleDark>Inscreva-se grátis</TitleDark>
-                    </BtnFollowFree>
-                    <ButtonLogin
-                        color='white'
-                        iconFeather='smartphone'
-                        title='Continuar com número de telefone'
-                    />
-                    <ButtonLogin
-                        color='red'
-                        iconMaterialCommunity='google'
-                        title='Continuar com Google'
-                    />
-                    <ButtonLogin
-                        color='blue'
-                        title='Continuar com Facebook'
-                        iconMaterialCommunity='facebook'
-                    />
-                    <BtnLogin >
-                        <Title>Entrar</Title>
-                    </BtnLogin>
-                </ViewBtn>
-            </LowerContent>
+            <Separator />
+            <BigTitle>Senha</BigTitle>
+            <InputPassword
+                value={senha}
+                onChangeText={value => setSenha(value)}
+            />
+            <Separator />
+            <ButtonNext title="Entrar" disabled={!isButtonEnable} />
         </Container>
-    );
-};
-
-
+    )
+}
